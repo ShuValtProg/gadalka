@@ -1,0 +1,30 @@
+import time
+def result():
+    password = "1234"
+    count_trying = 3
+
+    while count_trying > 0:
+        user_input = input("Добрый день! Введите, пожалуйста, пин-код: ")
+
+        if user_input == password:
+            print("Верный пин-код, Добро пожаловать! ")
+            time.sleep(1)
+
+            while True:
+                try:
+                    amount = int(input("Сколько наличных вы хотите снять? "))
+                    if amount > 0:
+                        print(f"Секунду.. Операция выполняется. Успешно! Снято ровно: {amount} наличных!")
+                        break
+                    else:
+                        print("Некорректное число для снятия! Повторите попытку.")
+                except ValueError:
+                    print("Некорректный ввод! Пожалуйста, введите число.")
+            break
+        else:
+            count_trying -= 1
+            if count_trying > 0:
+                print(f"Неверный пароль, повторите попытку! У вас осталось {count_trying} попыток")
+            else:
+                print("Попытки истрачены. Вход запрещен!")
+result()
