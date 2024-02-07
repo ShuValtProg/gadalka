@@ -1,0 +1,20 @@
+import random
+import time
+while True:
+    try:
+        count_prize = 0
+        names_bots = ["Даня", "Василий", "Александр", "Алексей", "Наталья "]
+        item = random.choice(names_bots)
+        print(f"Бот {item} загадывает число... Попробуйте его отгадать)")
+        computer_num = random.randint(1, 5)
+        user_chance = int(input("Введите число: "))
+
+        if user_chance == computer_num:
+            count_prize += 1
+            print(f"Верно! Вы угадали! У вас {count_prize + 1} очков!")
+            time.sleep(0.5)
+        else:
+            print(f"Не верно! Это было число: {computer_num} ")
+            time.sleep(0.5)
+    except ValueError:
+        print("Неверное число, повторите попытку! ")
